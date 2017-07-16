@@ -30,11 +30,12 @@ namespace CustomerFormatter
         {
             return this.ToString("G", new MFormatProvider());
         }
+
         /// <summary>
         /// Convert an object Customer to a string view
         /// </summary>
         /// <returns>string view of an object</returns>
-        public string ToString(string format) => ToString(format, CultureInfo.CurrentCulture);
+        public string ToString(string format) => $"Customer record: {Name}, Phone: {Phone}, Revanue: {Revanue}";
         /// <summary>
         /// Convert an object Customer to a string view
         /// </summary>
@@ -49,7 +50,7 @@ namespace CustomerFormatter
             switch (format.Length > 1 ? format.Substring(0, 1) : format)
             {
                 case "G":
-                    res = $"Customer record: {Name}, Phone: {Phone}";
+                    res =this.ToString();
                     break;
                 case "A":
                     res = $"Customer record: {Name}, Phone: {Phone}, Revanue: {Revanue}";
